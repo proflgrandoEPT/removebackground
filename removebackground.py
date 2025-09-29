@@ -12,14 +12,18 @@ st.write("Carregue uma imagem e remova o fundo automaticamente!")
 uploaded_file = st.file_uploader("Escolha uma imagem", type=["png", "jpg", "jpeg"])
 
 if uploaded_file is not None:
-    # Abrir a imagem
-    input_image = Image.open(uploaded_file)
+    # Abrir a imagem e converter para RGB
+    input_image = Image.open(uploaded_file).convert("RGB")
 
     st.subheader("Imagem Original")
     st.image(input_image, use_container_width=True)
 
     # Remover fundo
     output_image = remove(input_image)
+
+    # Converter saída também para RGB (ou RGBA se quiser preservar transparência)
+    if output_image.mode != "RGBA":
+        output_image = output_image.convert("RGBA")
 
     st.subheader("Imagem sem Fundo")
     st.image(output_image, use_container_width=True)
