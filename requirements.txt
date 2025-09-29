@@ -1,6 +1,4 @@
-streamlit
-rembg
-PIL
-io
-pillow
-onnxruntime
+streamlit==1.38.0
+rembg==2.0.61
+pillow==10.4.0
+onnxruntime==1.20.0
