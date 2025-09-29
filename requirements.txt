@@ -2,3 +2,5 @@ streamlit
 rembg
 PIL
 io
+pillow
+onnxruntime
